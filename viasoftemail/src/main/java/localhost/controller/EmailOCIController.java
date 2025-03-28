@@ -1,17 +1,23 @@
 package localhost.controller;
 
 import jakarta.validation.Valid;
+import localhost.config.EmailDTOConfig;
+import localhost.dto.EmailDTO;
 import localhost.dto.EmailOciDTO;
 
 import static localhost.messages.ValidationMessages.*;
 
+import localhost.messages.ValidationMessages;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 @RequestMapping("/email")
@@ -23,8 +29,8 @@ public class EmailOCIController {
 
 //    @Autowired
 //    EmailDTO emailDTO;
-//    @Autowired
-//    private EmailDTOConfig emailDTOConfig;
+@Autowired
+private EmailDTOConfig emailDTOConfig;
 
 //    @Autowired
 //    private SenderService senderService;
@@ -35,11 +41,23 @@ public class EmailOCIController {
 
 
     @PostMapping("/send")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void enviarEmail(@RequestBody String emailJson) {
+        EmailDTO emailDTO = emailDTOConfig.mapToEmailDTO(emailJson);
+        System.out.println("Objeto recebido: " + emailDTO);
+
+        System.out.println(ValidationMessages.CORREIO_ENVIADO_SUCESSO);
+
+    }
+
+
+    @PostMapping("/send2")
     public ResponseEntity<String> sendEmail(@Valid @RequestBody EmailOciDTO emailDTO) {
         System.out.println("mail.integracao = " + integracao);
         System.out.println("Objeto recebido: " + emailDTO);
         return ResponseEntity.ok(CORREIO_ENVIADO_SUCESSO);
     }
+
 
     /*
     @PostMapping("/send")
