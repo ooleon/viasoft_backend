@@ -2,11 +2,14 @@ package localhost.controller;
 
 import jakarta.validation.Valid;
 import localhost.config.EmailDTOConfig;
+import localhost.dto.EmailAwsDTO;
 import localhost.dto.EmailDTO;
+import localhost.dto.EmailGeneralOciDTO;
 import localhost.dto.EmailOciDTO;
 
 import static localhost.messages.ValidationMessages.*;
 
+import localhost.mapper.EmailMapper;
 import localhost.messages.ValidationMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,10 +54,12 @@ private EmailDTOConfig emailDTOConfig;
     }
 
 
-    @PostMapping("/send2")
-    public ResponseEntity<String> sendEmail(@Valid @RequestBody EmailOciDTO emailDTO) {
+    @PostMapping("/sendgeneral")
+    public ResponseEntity<String> sendEmail(@Valid @RequestBody EmailGeneralOciDTO emailDTO) {
         System.out.println("mail.integracao = " + integracao);
         System.out.println("Objeto recebido: " + emailDTO);
+        EmailOciDTO emailOciDTO = EmailMapper.generalToOciDto(emailDTO);
+        System.out.println("Objeto convertido: \n" + emailOciDTO);
         return ResponseEntity.ok(CORREIO_ENVIADO_SUCESSO);
     }
 

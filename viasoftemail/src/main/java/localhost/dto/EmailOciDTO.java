@@ -15,8 +15,6 @@ public class EmailOciDTO implements EmailDTO {
     public EmailOciDTO() {
     }
 
-    @Value("${MAXMESSAGEOCI}")
-    final int MAXMESSAGEOCI = 250;
 
     //E-mail destinatário: Max: 40 caracteres
     @NotBlank(message = O_EMAIL_DESTINATARIO_NAO_PODE_ESTAR_VAZIO)

@@ -16,6 +16,8 @@ public final class ValidationMessages {
     public static final String O_EMIAL_REMETENTE_DEVE_SER_VALIDO = "O remetente deve ser um e-mail válido";
     public static final String O_ASSUNTO_NAO_PODE_ESTAR_VAZIO = "O assunto não pode estar vazio";
     public static final String O_CONTEUDO_NAO_PODE_ESTAR_VAZIO = "O conteúdo não pode estar vazio";
+    public static final int MAXMESSAGEOCI = 250;
+
 
     public static final String NAO_PODE_ESTAR_VAZIO = "não pode estar vazio";
     public static final String NOME_DO_DESTINATARIO = "O nome do destinatário ";
