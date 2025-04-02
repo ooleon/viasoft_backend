@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
 
 //@SpringBootTest
@@ -55,7 +56,7 @@ class EmailAwsControllerIntegrationTest {
             );
 
             // Verifica que el estado HTTP sea 204 No Content
-            assertThat(response.getStatusCode()).isEqualTo(OK);
+            assertThat(response.getStatusCode()).isEqualTo(NO_CONTENT);
 
             System.out.println(response.getBody());
         } else {
