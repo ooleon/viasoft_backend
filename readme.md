@@ -1,0 +1,71 @@
+# Prueba back-end para viasoftemail
+
+## objetivo:
+imagine (sem realizar a integração) que você precisa enviar e-mail mediante plataformas como aws e oci.
+o teste consiste em criar uma aplicação rest com endpoint que recebe dados para envio de email, com apenas uma requisição, sem alterar o objeto de entrada, dependendo da configuração setada em application.properties o objeto deve ser adaptado para novas classes, também deve ser serializado e impresso no console.
+
+## ambiente de desenvolvimento:
+`java 17`, maven e a  lib spring web. pode ser utilizado outras libs em conjunto.
+
+
+## Requisitos:
+1 - crie uma aplicação rest com um endpoint, que deverá receber um objeto e processar as informações.
+A requisição deve ser feita utilizando o postman ou uma ferramenta similar.  
+2 - crie uma classe dto e modele os atributos contendo as seguintes informações:  
+
+    • e-mail do destinatário
+    • nome do destinatário
+    • email do remetente
+    • assunto
+    • conteúdo
+
+2.1 - o objeto recebido no controller será uma instância da classe criada acima.
+
+3 - crie em application.properties um atributo chamado mail.integracao, que o valor pode ser configurado com `oci` ou `aws`.
+
+4 - crie a classe chamada Emailawsdto, com os seguintes atributos:
+
+`recipient` e-mail destinatário: max: 45 caracteres  
+`recipientname` nome destinatário. max: 60 caracteres  
+`sender` e-mail remetente. max: 45 caracteres  
+`subject` assunto do e-mail. max: 120 caracteres  
+`content` conteúdo do e-mail. max: 256 caracteres  
+
+5 - crie a classe chamada emailocidto, com os seguintes atributos:
+
+`recipientemail`
+e-mail destinatário: max: 40 caracteres  
+`recipientname`
+nome destinatário. max: 50 caracteres  
+`senderemail`
+e-mail remetente. max: 40 caracteres  
+`subject`
+assunto do e-mail. max: 100 caracteres  
+`body`
+conteúdo do e-mail. max: 250 caracteres  
+
+6 - ao receber a requisição, adaptar a informação do objeto para a classe emailawsdto ou emailocidto, dependendo da configuração em `application.properties`.
+
+7 - serializar o objeto em json e imprimir no console.
+
+8 - se a requisição ocorrer com sucesso retornar status `204`.
+
+9 - se a requisição falhar, tratar os erros com status `400` ou `500`.
+
+## Avaliação
+avaliação habilidades de criação de projeto e arquitetura back-end:
+
+    • capacidade analítica
+    • implementação de arquitetura em camadas
+    • desacoplamento dos componentes
+    • conhecimento sobre rest
+    • apresentação de código limpo e organizado
+    • aplicação e conhecimento de solid
+    • identificação e aplicação de design patterns
+    • validação dos dados
+    • tratamento de erros
+
+o que será diferencial
+
+    • documentação
+    • teste unitário
