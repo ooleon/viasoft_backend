@@ -1,7 +1,8 @@
 # Prueba back-end para viasoftemail
 
+[Desafio Back-end Viasoft.odt] (viasoftemail/Desafio\ Back-end Viasoft.odt)
 ## objetivo:
-imagine (sem realizar a integração) que você precisa enviar e-mail mediante plataformas como aws e oci.
+imagine (**sem realizar a integração**) que você precisa enviar e-mail mediante plataformas como aws e oci.
 o teste consiste em criar uma aplicação rest com endpoint que recebe dados para envio de email, com apenas uma requisição, sem alterar o objeto de entrada, dependendo da configuração setada em application.properties o objeto deve ser adaptado para novas classes, também deve ser serializado e impresso no console.
 
 ## ambiente de desenvolvimento:

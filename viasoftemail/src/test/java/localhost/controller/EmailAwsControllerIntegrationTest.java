@@ -1,6 +1,7 @@
 package localhost.controller;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -13,14 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.springframework.http.HttpStatus.OK;
 
 //@SpringBootTest
 //@IfProfileValue(name = "server.running", value = "true")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EmailAwsControllerIntegrationTest {
 
     @LocalServerPort
@@ -29,6 +28,7 @@ class EmailAwsControllerIntegrationTest {
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Test
+    @Order(3)
     void enviarEmail_DeveRetornarContent_QuandoDadosValidos_HappyPath() {
         String url = "http://localhost:" + port + "/email/send";
 
@@ -64,6 +64,7 @@ class EmailAwsControllerIntegrationTest {
     }
 
     @Test
+    @Order(1)
     void enviarEmail_DeveRetornarNoContent_QuandoDadosValidos() {
         String url = "http://localhost:" + port + "/email/send";
 
@@ -109,6 +110,7 @@ class EmailAwsControllerIntegrationTest {
     }
 
     @Test
+    @Order(2)
     void enviarEmail_DeveRetornarBadRequest_QuandoDadosInvalidos() {
         String url = "http://localhost:" + port + "/email/send";
 

@@ -32,16 +32,28 @@ public class EmailDTOConfig {
             if (AWS.equalsIgnoreCase(mailIntegracao)) {
                 emailDTO = objectMapper.readValue(json, EmailAwsDTO.class);
             } else if (OCI.equalsIgnoreCase(mailIntegracao)) {
-                EmailAwsDTO awsDTO = objectMapper.readValue(json, EmailAwsDTO.class);
+//                EmailAwsDTO awsDTO = objectMapper.readValue(json, EmailAwsDTO.class);
+//
+//                EmailOciDTO ociDTO = new EmailOciDTO();
+//                ociDTO.setRecipientEmail(awsDTO.getRecipient());
+//                ociDTO.setRecipientName(awsDTO.getRecipientName());
+//                ociDTO.setSenderEmail(awsDTO.getSender());
+//                ociDTO.setSubject(awsDTO.getSubject());
+//                ociDTO.setBody(awsDTO.getContent());
+//                EmailAwsDTO awsDTO = objectMapper.readValue(json, EmailAwsDTO.class);
+                emailDTO = objectMapper.readValue(json, EmailOciDTO.class);
 
+                /*
                 EmailOciDTO ociDTO = new EmailOciDTO();
                 ociDTO.setRecipientEmail(awsDTO.getRecipient());
                 ociDTO.setRecipientName(awsDTO.getRecipientName());
                 ociDTO.setSenderEmail(awsDTO.getSender());
                 ociDTO.setSubject(awsDTO.getSubject());
                 ociDTO.setBody(awsDTO.getContent());
+                */
 
-                emailDTO = ociDTO;
+
+//                emailDTO = ociDTO;
             } else {
                 throw new IllegalArgumentException(CONFIGURACAO_INTEGRACAO_INVALIDA);
             }
