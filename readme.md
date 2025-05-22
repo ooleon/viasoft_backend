@@ -4,6 +4,11 @@
 ## objetivo:
 imagine (**sem realizar a integração**) que você precisa enviar e-mail mediante plataformas como aws e oci.
 o teste consiste em criar uma aplicação rest com endpoint que recebe dados para envio de email, com apenas uma requisição, sem alterar o objeto de entrada, dependendo da configuração setada em application.properties o objeto deve ser adaptado para novas classes, também deve ser serializado e impresso no console.
+<br>
+		    [jsei 7rrd     |   	m1fo dmsz]
+<br>
+		    [ez1y i9hj     |   	r9rc 14cu]
+
 
 ## ambiente de desenvolvimento:
 `java 17`, maven e a  lib spring web. pode ser utilizado outras libs em conjunto.
